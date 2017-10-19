@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Goudkoorts
 {
-    public class Switch : Field
+    public class Switch : ActionField
     {
 
         // Constructor
@@ -14,7 +14,7 @@ namespace Goudkoorts
 
         }
 
-        public override string Type()
+        public override string Icon()
         {
             return "|";
         }

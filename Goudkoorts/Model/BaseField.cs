@@ -9,7 +9,7 @@ namespace Goudkoorts
     {
         virtual public BaseField NextField { get; set; }
 
-        public abstract string Type();
+        public abstract string Icon();
 
         public abstract void PutCartOnThisField(Cart cart);
 

@@ -5,9 +5,9 @@ using System.Text;
 
 namespace Goudkoorts
 {
-    public class Dock : Field
+    public class Dock : ActionField
     {
-        public override string Type()
+        public override string Icon()
         {
             return "D";
         }

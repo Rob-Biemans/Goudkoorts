@@ -9,9 +9,9 @@ namespace Goudkoorts
     {
         protected Cart _cart;
 
-        public override string Type()
+        public override string Icon()
         {
-            return ".";
+            return "";
         }
 
         override public void PutCartOnThisField(Cart cart)
@@ -31,5 +31,6 @@ namespace Goudkoorts
                 //throw new Exception_StoneNotFound();
             }
         }
+
     }
 }

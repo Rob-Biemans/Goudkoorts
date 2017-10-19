@@ -5,11 +5,11 @@ using System.Text;
 
 namespace Goudkoorts
 {
-    public class Yard : Field
+    public class Yard : ActionField
     {
-        public override string Type()
+        public override string Icon()
         {
-            return "-";
+            return "A";
         }
     }
 }

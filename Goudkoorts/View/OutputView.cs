@@ -36,6 +36,20 @@ namespace Goudkoorts
             input = Console.ReadKey();
         }
 
+        public void demoField()
+        {
+            Console.WriteLine("~~~~~~<@@@>~~");
+            Console.WriteLine("--------D--╮.");
+            Console.WriteLine("...........|.");
+            Console.WriteLine("A--╮.╭---╮.|.");
+            Console.WriteLine("...S-S...S-╯.");
+            Console.WriteLine("B--╯.╰╮.╭╯...");
+            Console.WriteLine("......S-S....");
+            Console.WriteLine("C-----╯.╰--╮.");
+            Console.WriteLine("-----------╯.");
+            Console.ReadKey();
+        }
+
 
         private void ShowFields()
         {

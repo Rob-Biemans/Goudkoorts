@@ -1,0 +1,45 @@
+random karretjes met lading spawnen
+
+tijdsinterval maken
+
+iedere tijdsinterval alle karretjes 1 stap laten zetten als dat kan
+
+karretjes hebben allemaal evenveel lading
+
+kar die langs de kade is gereden doet zijn lading in het schip
+
+kar rijdt van het scherm af en wordt verwijderd
+
+schip vullen
+
+schip weg laten varen
+
+pijl van richting op scherm zetten
+
+8 karretjes in 1 schip
+
+karretjes kunnen alleen hun lading kwijt als het schip aan de kade is en niet vol zit
+
+schip vol = +10 punten voor speler
+
+daarna vertrekt het schip tot dat ie uit beeld is.
+
+kunnen meerdere schepen op het scherm zijn
+
+wissel is een baanvak
+
+speler bedient de wissels
+
+wissel kan met een karretje erop niet omgezet worden
+
+als wissel niet goed staat kan het karretje er niet op en blijft het karretje op ze zelfde plek staan
+
+als karretjes botsen stopt het speler
+
+als het schip vol is rijdt het volle karretje er langs zonder de lading te lossen
+
+karretjes kunnen op het rangeerterrein komen zonder te botsen
+
+hoe langer het spel doorgaat hoe meer karretjes er komen en hoe korter de tijdsinterval wordt
+
+

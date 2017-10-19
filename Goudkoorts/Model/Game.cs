@@ -11,14 +11,14 @@ namespace Goudkoorts
         // Declarations
         private Player _player { get; set; }
         private Boolean _isGameOver { get; set; }
-        private Ship _ship { get; set; }
 
         private Field _field { get; set; }
+        private List<Field> _gameField;
 
         // Constructor
         public Game()
         {
-            _ship = new Ship();
+            
             _player = new Player();
         }
 

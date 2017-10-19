@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Goudkoorts
 {
-    public class Ship
+    public class Ship : moveAbleObject
     {
         // Declarations
         private int currentCarts;
