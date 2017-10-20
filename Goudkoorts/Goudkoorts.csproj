@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BeginWaterField.cs" />
     <Compile Include="Model\ActionField.cs" />
     <Compile Include="Model\Directions.cs" />
     <Compile Include="Model\EmptyField.cs" />
@@ -57,6 +58,7 @@
     <Compile Include="Model\moveAbleObject.cs" />
     <Compile Include="Model\StaticField.cs" />
     <Compile Include="Model\Track.cs" />
+    <Compile Include="Spawner.cs" />
     <Compile Include="View\InputView.cs" />
     <Compile Include="Model\Game.cs" />
     <Compile Include="Model\Player.cs" />
@@ -73,6 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="features.txt" />
+    <Content Include="Level\map1.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

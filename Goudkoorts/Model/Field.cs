@@ -9,6 +9,8 @@ namespace Goudkoorts
     {
         protected Cart _cart;
 
+        private MoveAbleObject _moveAbleObject { get; set; }
+
         public override string Icon()
         {
             return "";

@@ -7,7 +7,7 @@ namespace Goudkoorts
 {
     public class Warehouse : StaticField
     {
-        public override string Type()
+        public override string Icon()
         {
             return "A";
         }

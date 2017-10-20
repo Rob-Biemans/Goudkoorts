@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Goudkoorts
 {
-    public class Cart : moveAbleObject
+    public class Cart : MoveAbleObject
     {
         // Declarations
         private Boolean _isFilled { get; set; }
@@ -14,11 +14,6 @@ namespace Goudkoorts
         public Cart()
         {
             this._isFilled = true;
-        }
-
-        public override string Icon()
-        {
-            return "#";
         }
 
         private Boolean getIsFilled()
