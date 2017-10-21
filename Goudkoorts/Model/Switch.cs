@@ -19,7 +19,7 @@ namespace Goudkoorts
 
         public override string Icon()
         {
-            return "|";
+            return "S";
         }
     }
 }

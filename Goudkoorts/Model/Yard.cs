@@ -9,7 +9,7 @@ namespace Goudkoorts
     {
         public override string Icon()
         {
-            return "A";
+            return "Y";
         }
     }
 }

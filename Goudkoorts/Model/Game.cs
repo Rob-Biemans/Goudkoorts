@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Timers;
 
 namespace Goudkoorts
 {
@@ -16,14 +17,31 @@ namespace Goudkoorts
         private Field _field { get; set; }
 
         private string _filePath = Path.GetDirectoryName(System.AppDomain.CurrentDomain.BaseDirectory);
-        private LinkedList<Field> _gameField;
+        private LinkedList<Field> _gameField { get; set; }
+
+        protected Field _first; // wijst naar eerste element in de lijst
+        protected Field _last;  // wijst naar laatste element in de lijst
+        protected int _length; // is gelijk aan het aantal links in de lijst 
+
+        private Timer aTimer;
 
         // Constructor
         public Game()
         {
             _player = new Player();
             generateField();
-            Console.ReadKey();
+
+            aTimer = new Timer(2000);
+            aTimer.Elapsed += OnTimedEvent;
+            aTimer.AutoReset = true;
+            aTimer.Enabled = true;
+
+            //Console.ReadKey();
+        }
+
+        private void OnTimedEvent(object sender, ElapsedEventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         public Boolean getGameOver()
@@ -36,7 +54,7 @@ namespace Goudkoorts
             this._isGameOver = true;
         }
 
-        public void generateField()
+        private void generateField()
         {
             this._gameField = new LinkedList<Field>();
 
@@ -56,11 +74,11 @@ namespace Goudkoorts
                             break;
 
                         case '-':
-                            this._gameField.AddLast(new Track());
+                            this._gameField.AddLast(new Track("-"));
                             break;
 
                         case '|':
-                            this._gameField.AddLast(new Track());
+                            this._gameField.AddLast(new Track("|"));
                             break;
 
                         case '.':
@@ -77,22 +95,22 @@ namespace Goudkoorts
 
                         // ╮ 
                         case 'w':
-                            this._gameField.AddLast(new Track());
+                            this._gameField.AddLast(new Track("╮"));
                             break;
 
                         // ╭ 
                         case 'x':
-                            this._gameField.AddLast(new Track());
+                            this._gameField.AddLast(new Track("╭"));
                             break;
 
                         // ╯ 
                         case 'y':
-                            this._gameField.AddLast(new Track());
+                            this._gameField.AddLast(new Track("╯"));
                             break;
 
                         // ╰ 
                         case 'z':
-                            this._gameField.AddLast(new Track());
+                            this._gameField.AddLast(new Track("╰"));
                             break;
 
                         case 'S':
@@ -101,6 +119,10 @@ namespace Goudkoorts
 
                         case 'A':
                             this._gameField.AddLast(new Warehouse());
+                            break;
+
+                        case 'E':
+                            this._gameField.AddLast(new EndField());
                             break;
 
                         // Ship
@@ -113,7 +135,7 @@ namespace Goudkoorts
                             break;
 
                         default:
-                            Console.WriteLine("CORRUPT MAP FILE");
+                            Console.WriteLine("CORRUPT MAP FILE :(");
                             Console.ReadKey();
                             break;
                     }
@@ -121,11 +143,12 @@ namespace Goudkoorts
                 }
             }
 
-            Console.WriteLine(this._gameField.Count());
-            Console.ReadKey();
-
         }
 
+        public LinkedList<Field> getGameField()
+        {
+            return this._gameField;
+        }
 
     }
 }

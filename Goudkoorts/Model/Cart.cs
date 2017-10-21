@@ -16,6 +16,11 @@ namespace Goudkoorts
             this._isFilled = true;
         }
 
+        public override string Icon()
+        {
+            return "#";
+        }
+
         private Boolean getIsFilled()
         {
             return this._isFilled;

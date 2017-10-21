@@ -11,27 +11,23 @@ namespace Goudkoorts
         // 1-5 OF s = stop
         public int askForSwitchPick()
         {
+            Console.WriteLine("> pick a switch  (1 - 5), s = stop");
+
+            var note = Console.ReadLine();
             int s = 0;
-            char c = '?';
 
-            while ((s < 1 || s > 5))
-            {
-                Console.WriteLine("> pick a switch  (1 - 5), s = stop");
-                var input = Console.ReadKey();
-                c = input.KeyChar;
-                if (s >= '1' && s <= '6')
-                {
-                    s = Convert.ToInt32(c);
-                }
-
-            }
-            if (c == 's')
-            {
+            if (note.Length > 1) {
+                askForSwitchPick();
+            } else if (note == "S" || note == "s") {
                 Environment.Exit(0);
             }
 
-            Console.WriteLine("GEKOZEN: " + s);
-            Console.ReadKey();
+            try {
+                s = Convert.ToInt32(note);
+            } catch (FormatException e) {
+                askForSwitchPick();
+            }
+
             return s;
         }
     }

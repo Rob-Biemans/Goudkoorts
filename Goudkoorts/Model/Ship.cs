@@ -14,7 +14,12 @@ namespace Goudkoorts
         // Constructor
         public Ship()
         {
+            this.currentCarts = 0;
+        }
 
+        public override string Icon()
+        {
+            return "@";
         }
 
         public int getCurrentAmountOfCarts()

@@ -5,7 +5,4 @@ using System.Text;
 
 namespace Goudkoorts
 {
-    public class BeginWaterField
-    {
-    }
 }

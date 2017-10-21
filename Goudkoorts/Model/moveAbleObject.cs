@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Goudkoorts
 {
-    public abstract class MoveAbleObject
+    public abstract class MoveAbleObject : Field
     {
 
     }

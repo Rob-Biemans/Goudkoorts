@@ -11,9 +11,9 @@ namespace Goudkoorts
 
         public abstract string Icon();
 
-        public abstract void PutCartOnThisField(Cart cart);
+        public abstract void PutMoveAbleObjectOnThisField(Cart cart);
 
-        public abstract void RemoveCartFromThisField(Cart cart);
+        public abstract void RemoveMoveAbleObjectFromThisField(Cart cart);
 
     }
 }

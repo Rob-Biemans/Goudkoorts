@@ -8,29 +8,51 @@ namespace Goudkoorts
     public class Field : BaseField
     {
         protected Cart _cart;
+        private BaseField _spot;
 
-        private MoveAbleObject _moveAbleObject { get; set; }
+        private MoveAbleObject _MoveAbleObject { get; set; }
 
         public override string Icon()
         {
-            return "";
+            return "F";
         }
 
-        override public void PutCartOnThisField(Cart cart)
+        public void moveTo()
+        {
+            BaseField oldSpot = _spot;
+            BaseField newSpot = oldSpot;
+
+            if (_spot is EndField)
+            {
+                // Einde van de baan of water 
+                // dus Cart of Ship verdwijnt
+                oldSpot.RemoveMoveAbleObjectFromThisField(_cart);
+            }
+
+            newSpot = newSpot.NextField;
+           
+            // update the fields (put and remove cart)
+            newSpot.PutMoveAbleObjectOnThisField(_cart);
+            _spot = newSpot;
+            oldSpot.RemoveMoveAbleObjectFromThisField(_cart);
+        }
+
+        override public void PutMoveAbleObjectOnThisField(Cart cart)
         {
             if (cart == null) {
                 this._cart = cart;
             } else {
-                
+                // Er is al aan cart
+                // Gameover
             }
         }
 
-        public override void RemoveCartFromThisField(Cart cart)
+        public override void RemoveMoveAbleObjectFromThisField(Cart cart)
         {
             if (this._cart == cart) {
                 this._cart = null;
             } else {
-                //throw new Exception_StoneNotFound();
+                // Theres no cart to be removed.
             }
         }
 

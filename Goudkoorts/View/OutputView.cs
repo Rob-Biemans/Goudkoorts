@@ -22,6 +22,39 @@ namespace Goudkoorts
             input = Console.ReadKey();
             Console.Clear();
         }
+        
+        public void ShowGameStatus(Game game)
+        {
+            Console.WriteLine(game.getGameField().Count());
+            //TODO Print Map (Fields)
+            PrintMap(game, game.getGameField().First);
+
+            // Print available MoveAbleObjects (Cart/Ship)
+
+        }
+
+        internal void PrintMap(Game game, LinkedListNode<Field> start)
+        {
+            //TODO Print Map (Fields)
+
+
+            //BaseField currentField = start.NextField;
+            //{
+            //    for (int i = 0; i < game.getGameField().Count(); i++)
+            //    {
+            //        Console.Write(currentField.Icon());
+            //        if (currentField is Field)
+            //        {
+            //            currentField = ((Field)currentField).NextField;
+            //        }
+            //        else
+            //        {
+            //            currentField = currentField.NextField;
+            //        }
+            //    }
+            //    Console.WriteLine();
+            //}
+        }
 
         public void ShowGameOver(string winner)
         {
@@ -34,26 +67,6 @@ namespace Goudkoorts
             Console.WriteLine("===== game over =====");
             Console.WriteLine("> press key to continue");
             input = Console.ReadKey();
-        }
-
-        public void demoField()
-        {
-            Console.WriteLine("~~~~~~<@@@>~~");
-            Console.WriteLine("--------D--╮.");
-            Console.WriteLine("...........|.");
-            Console.WriteLine("A--╮.╭---╮.|.");
-            Console.WriteLine("...S-S...S-╯.");
-            Console.WriteLine("B--╯.╰╮.╭╯...");
-            Console.WriteLine("......S-S....");
-            Console.WriteLine("C-----╯.╰--╮.");
-            Console.WriteLine("-----------╯.");
-            Console.ReadKey();
-        }
-
-
-        private void ShowFields()
-        {
-
         }
 
         private void ShowCarts()
