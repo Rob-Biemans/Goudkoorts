@@ -19,7 +19,7 @@ namespace Goudkoorts
 
         public override string Icon()
         {
-            return "@";
+            return "0";
         }
 
         public int getCurrentAmountOfCarts()

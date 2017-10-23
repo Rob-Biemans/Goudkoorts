@@ -3,7 +3,7 @@
   <Class Name="Goudkoorts.Game">
     <Position X="5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AACIIAABAAAAAAAAAAAKCAAFAgAIAAAARAAAABAAAAA=</HashCode>
+      <HashCode>AAAIIAABABAAAAAAAAAKCAAFAgIIAAAARAAAABAAAAA=</HashCode>
       <FileName>Model\Game.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -28,7 +28,7 @@
   <Class Name="Goudkoorts.OutputView">
     <Position X="12.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAQAAAAAAAIACAAAAAAAAAAAAAABAAAAAAAAABAAAA=</HashCode>
+      <HashCode>gAAQAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAARAAAA=</HashCode>
       <FileName>View\OutputView.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -55,9 +55,9 @@
     <Position X="3" Y="4" Width="1.5" />
     <InheritanceLine Type="Goudkoorts.MoveAbleObject" FixedFromPoint="true">
       <Path>
-        <Point X="4.5" Y="7.058" />
-        <Point X="3.75" Y="7.058" />
-        <Point X="3.75" Y="6.261" />
+        <Point X="4.25" Y="7.058" />
+        <Point X="3.625" Y="7.058" />
+        <Point X="3.625" Y="6.261" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
@@ -66,9 +66,9 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Goudkoorts.Field">
-    <Position X="7.25" Y="5.25" Width="1.5" />
+    <Position X="7.25" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAgAEAAAAAAAAAAAAIAAAAAAAAACAAAEAEAACA=</HashCode>
+      <HashCode>AACAAAAgAEAAAAAAAAAAAAIAEAAAAAAACAAAEAEBACQ=</HashCode>
       <FileName>Model\Field.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -79,9 +79,9 @@
     <Position X="2.75" Y="7.5" Width="1.5" />
     <InheritanceLine Type="Goudkoorts.MoveAbleObject" FixedFromPoint="true">
       <Path>
-        <Point X="4.5" Y="7.058" />
-        <Point X="3.25" Y="7.058" />
-        <Point X="3.25" Y="7.5" />
+        <Point X="4.25" Y="7.058" />
+        <Point X="3.188" Y="7.058" />
+        <Point X="3.188" Y="7.5" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
@@ -141,17 +141,10 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Goudkoorts.Track">
-    <Position X="9.75" Y="10" Width="1.5" />
+    <Position X="8.25" Y="10" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAEAAAA=</HashCode>
       <FileName>Model\Track.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Goudkoorts.EndField">
-    <Position X="8" Y="10" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
-      <FileName>Model\EndField.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Goudkoorts.WaterField">
@@ -184,7 +177,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Goudkoorts.MoveAbleObject" Collapsed="true">
-    <Position X="4.5" Y="6.75" Width="1.5" />
+    <Position X="4.25" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\MoveAbleObject.cs</FileName>

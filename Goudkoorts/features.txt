@@ -4,8 +4,6 @@ tijdsinterval maken
 
 iedere tijdsinterval alle karretjes 1 stap laten zetten als dat kan
 
-karretjes hebben allemaal evenveel lading
-
 kar die langs de kade is gereden doet zijn lading in het schip
 
 kar rijdt van het scherm af en wordt verwijderd
@@ -25,10 +23,6 @@ schip vol = +10 punten voor speler
 daarna vertrekt het schip tot dat ie uit beeld is.
 
 kunnen meerdere schepen op het scherm zijn
-
-wissel is een baanvak
-
-speler bedient de wissels
 
 wissel kan met een karretje erop niet omgezet worden
 

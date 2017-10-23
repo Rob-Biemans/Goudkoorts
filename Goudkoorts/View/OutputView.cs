@@ -27,33 +27,46 @@ namespace Goudkoorts
         {
             Console.WriteLine(game.getGameField().Count());
             //TODO Print Map (Fields)
-            PrintMap(game, game.getGameField().First);
+            PrintMap(game, game.getGameField());
 
             // Print available MoveAbleObjects (Cart/Ship)
 
         }
 
-        internal void PrintMap(Game game, LinkedListNode<Field> start)
+        internal void PrintMap(Game game, LinkedList<Field> start)
         {
-            //TODO Print Map (Fields)
+            int i = 0;
+            int index = 0;
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+            Console.WriteLine(start.Count);
 
+            BaseField currentField = start.First.Value;
+            {
+                while(currentField != null)
+                {
+                    
+                    if (i % 13 == 0)
+                    {
+                        Console.WriteLine();
+                        i = 0;
+                    }
 
-            //BaseField currentField = start.NextField;
-            //{
-            //    for (int i = 0; i < game.getGameField().Count(); i++)
-            //    {
-            //        Console.Write(currentField.Icon());
-            //        if (currentField is Field)
-            //        {
-            //            currentField = ((Field)currentField).NextField;
-            //        }
-            //        else
-            //        {
-            //            currentField = currentField.NextField;
-            //        }
-            //    }
-            //    Console.WriteLine();
-            //}
+                    if (start.ElementAt(index) != null) {
+                        Console.Write(start.ElementAt(index).Icon());
+                    } else {
+                        Console.Write(currentField.Icon());
+                    }
+
+                    if (currentField is Field)
+                    {
+                        currentField = ((Field)currentField).NextField;
+                    }
+
+                    i++;
+                    index++;
+                }
+                Console.WriteLine();               
+            }
         }
 
         public void ShowGameOver(string winner)

@@ -47,7 +47,6 @@
     <Compile Include="Model\ActionField.cs" />
     <Compile Include="Model\Directions.cs" />
     <Compile Include="Model\EmptyField.cs" />
-    <Compile Include="Model\EndField.cs" />
     <Compile Include="Model\BaseField.cs" />
     <Compile Include="Model\Cart.cs" />
     <Compile Include="Controller\GameController.cs" />

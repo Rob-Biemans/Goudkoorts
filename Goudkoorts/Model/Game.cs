@@ -35,13 +35,12 @@ namespace Goudkoorts
             aTimer.Elapsed += OnTimedEvent;
             aTimer.AutoReset = true;
             aTimer.Enabled = true;
-
-            //Console.ReadKey();
         }
 
         private void OnTimedEvent(object sender, ElapsedEventArgs e)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("ELAPSED");
+            //TODO MOVE CART en SHIP
         }
 
         public Boolean getGameOver()
@@ -63,75 +62,114 @@ namespace Goudkoorts
 
             string[] lines = System.IO.File.ReadAllLines(_filePath);
 
+            Field prev = null;
+            Field next = null;
+
             foreach (string line in lines)
             {
                 foreach (char Char in line)
                 {
+
+                    if (prev == null) {
+                        prev = new WaterField();
+                    }
+
                     switch (Char)
                     {
                         case '~':
-                            this._gameField.AddLast(new WaterField());
+                            next = new WaterField();
+                            prev.NextField = next;
+                            prev = next;
+                            this._gameField.AddLast(prev);
                             break;
 
                         case '-':
-                            this._gameField.AddLast(new Track("-"));
+                            next = new Track("-");
+                            prev.NextField = next;
+                            prev = next;
+                            this._gameField.AddLast(prev);
                             break;
 
                         case '|':
-                            this._gameField.AddLast(new Track("|"));
+                            next = new Track("|");
+                            prev.NextField = next;
+                            prev = next;
+                            this._gameField.AddLast(prev);
                             break;
 
                         case '.':
-                            this._gameField.AddLast(new EmptyField());
+                            next = new EmptyField();
+                            prev.NextField = next;
+                            prev = next;
+                            this._gameField.AddLast(prev);
                             break;
 
                         case 'D':
-                            this._gameField.AddLast(new Dock());
+                            next = new Dock();
+                            prev.NextField = next;
+                            prev = next;
+                            this._gameField.AddLast(prev);
                             break;
 
                         case 'Y':
-                            this._gameField.AddLast(new Yard());
+                            next = new Yard();
+                            prev.NextField = next;
+                            prev = next;
+                            this._gameField.AddLast(prev);
                             break;
 
                         // ╮ 
                         case 'w':
-                            this._gameField.AddLast(new Track("╮"));
+                            next = new Track("╮");
+                            prev.NextField = next;
+                            prev = next;
+                            this._gameField.AddLast(prev);
                             break;
 
                         // ╭ 
                         case 'x':
-                            this._gameField.AddLast(new Track("╭"));
+                            next = new Track("╭");
+                            prev.NextField = next;
+                            prev = next;
+                            this._gameField.AddLast(prev);
                             break;
 
                         // ╯ 
                         case 'y':
-                            this._gameField.AddLast(new Track("╯"));
+                            next = new Track("╯");
+                            prev.NextField = next;
+                            prev = next;
+                            this._gameField.AddLast(prev);
                             break;
 
                         // ╰ 
                         case 'z':
-                            this._gameField.AddLast(new Track("╰"));
+                            next = new Track("╰");
+                            prev.NextField = next;
+                            prev = next;
+                            this._gameField.AddLast(prev);
                             break;
 
                         case 'S':
-                            this._gameField.AddLast(new Switch());
+                            next = new Switch();
+                            prev.NextField = next;
+                            prev = next;
+                            this._gameField.AddLast(prev);
                             break;
 
                         case 'A':
-                            this._gameField.AddLast(new Warehouse());
-                            break;
-
-                        case 'E':
-                            this._gameField.AddLast(new EndField());
+                            next = new Warehouse();
+                            prev.NextField = next;
+                            prev = next;
+                            this._gameField.AddLast(prev);
                             break;
 
                         // Ship
-                        case '@':
-                            this._gameField.AddLast(new WaterField());
-                            break;
-
                         case '0':
-                            this._gameField.AddLast(new WaterField());
+                            next = new WaterField();
+                            prev.NextField = next;
+                            prev = next;
+                            this._gameField.AddLast(prev).Value = new Ship();
                             break;
 
                         default:
@@ -143,6 +181,31 @@ namespace Goudkoorts
                 }
             }
 
+            //generateTrackLinks();
+
+        }
+
+        public void generateTrackLinks()
+        {
+
+
+            // TODO
+
+            // 1 Eerste track
+
+            // 2 Daarom heen kijken waar de volgende track is.
+               // 2.1 in de link stoppen
+
+            // 3 Na de volgende track gaan en herhaal 2 etc.
+
+            BaseField field;
+            Track first;
+            //first = _gameField.Find(first);
+
+            foreach (var item in _gameField)
+            {
+                
+            }
         }
 
         public LinkedList<Field> getGameField()

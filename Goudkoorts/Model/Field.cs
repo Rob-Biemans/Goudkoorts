@@ -10,6 +10,11 @@ namespace Goudkoorts
         protected Cart _cart;
         private BaseField _spot;
 
+        private BaseField North;
+        private BaseField East;
+        private BaseField South;
+        private BaseField West;
+
         private MoveAbleObject _MoveAbleObject { get; set; }
 
         public override string Icon()
@@ -22,12 +27,12 @@ namespace Goudkoorts
             BaseField oldSpot = _spot;
             BaseField newSpot = oldSpot;
 
-            if (_spot is EndField)
-            {
+            //if (_spot is Laatste Track of Water)
+            //{
                 // Einde van de baan of water 
                 // dus Cart of Ship verdwijnt
                 oldSpot.RemoveMoveAbleObjectFromThisField(_cart);
-            }
+            //}
 
             newSpot = newSpot.NextField;
            

@@ -7,9 +7,8 @@ namespace Goudkoorts
 {
     public class Switch : ActionField
     {
-        private Field Direction { get; set; }
-
-        //Switch.Direction = up dan mag de bovenste erdoor
+        private Field In { get; set; }
+        private Field Out { get; set; }
 
         // Constructor
         public Switch()

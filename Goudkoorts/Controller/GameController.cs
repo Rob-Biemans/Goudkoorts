@@ -28,12 +28,13 @@ namespace Goudkoorts
            
             while (!_game.getGameOver())
             {
+                Console.Clear();
                 // Print Game
                 _outputview.ShowGameStatus(_game);
                 // Ask for input (switch)
                 // and change switch state
-                Console.WriteLine(_inputview.askForSwitchPick());
-                Console.ReadKey();
+                _inputview.askForSwitchPick();
+                
                 //Console.WriteLine("NIET OVER");
                 //_game.setGameOver();
             }
