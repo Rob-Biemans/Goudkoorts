@@ -8,6 +8,7 @@ namespace Goudkoorts
     public abstract class BaseField
     {
         virtual public BaseField NextField { get; set; }
+        virtual public BaseField NextTrack { get; set; }
 
         public abstract string Icon();
 

@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Goudkoorts.Game">
-    <Position X="5" Y="2.5" Width="1.5" />
+    <Position X="5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAIIAABABAAAAAAAAAKCAAFAgIIAAAARAAAABAAAAA=</HashCode>
+      <HashCode>AAAIIAAAABAAAAAAAAAKCAAFBgIIAAAAAAAAABAAAAA=</HashCode>
       <FileName>Model\Game.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -28,7 +28,7 @@
   <Class Name="Goudkoorts.OutputView">
     <Position X="12.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>gAAQAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAARAAAA=</HashCode>
+      <HashCode>gAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARAAAA=</HashCode>
       <FileName>View\OutputView.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -45,9 +45,9 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Goudkoorts.BaseField">
-    <Position X="10" Y="5" Width="1.5" />
+    <Position X="9.5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAECA=</HashCode>
+      <HashCode>AAAAAAAgAAAAAAAAAAACAAAAAAAAAAAAAAAAAAEAECA=</HashCode>
       <FileName>Model\BaseField.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -67,8 +67,16 @@
   </Class>
   <Class Name="Goudkoorts.Field">
     <Position X="7.25" Y="4.5" Width="1.5" />
+    <AssociationLine Name="_MoveAbleObject" Type="Goudkoorts.MoveAbleObject" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="7.25" Y="6.875" />
+        <Point X="7" Y="6.875" />
+        <Point X="7" Y="6.875" />
+        <Point X="5.75" Y="6.875" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AACAAAAgAEAAAAAAAAAAAAIAEAAAAAAACAAAEAEBACQ=</HashCode>
+      <HashCode>AAAAAAAgAEAAAAAAAAAAAAIAAAAAAAAACAAAEAEAACA=</HashCode>
       <FileName>Model\Field.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -85,7 +93,7 @@
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAQAAAAAAABCBAAAAAAAAAAAAEAAAA=</HashCode>
+      <HashCode>BAAAQAAAAAAAAAAAAAAAAAABAAAAAAAEAAAAAAEAAAA=</HashCode>
       <FileName>Model\Ship.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -103,11 +111,11 @@
       <FileName>Model\Yard.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Goudkoorts.Switch">
-    <Position X="10" Y="8" Width="1.5" />
+  <Class Name="Goudkoorts.SwitchIn">
+    <Position X="11.75" Y="8.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
-      <FileName>Model\Switch.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAEAAAA=</HashCode>
+      <FileName>Model\SwitchIn.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Goudkoorts.Warehouse">
@@ -128,13 +136,20 @@
   </Class>
   <Class Name="Goudkoorts.StaticField">
     <Position X="12.25" Y="7" Width="1.5" />
+    <InheritanceLine Type="Goudkoorts.Field" FixedToPoint="true">
+      <Path>
+        <Point X="8" Y="6.954" />
+        <Point X="8" Y="7.5" />
+        <Point X="12.25" Y="7.5" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\StaticField.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Goudkoorts.ActionField">
-    <Position X="7.25" Y="8.25" Width="1.5" />
+    <Position X="6.75" Y="8.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\ActionField.cs</FileName>
@@ -178,9 +193,30 @@
   </Class>
   <Class Name="Goudkoorts.MoveAbleObject" Collapsed="true">
     <Position X="4.25" Y="6.75" Width="1.5" />
+    <InheritanceLine Type="Goudkoorts.Field" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8" Y="6.954" />
+        <Point X="8" Y="7.125" />
+        <Point X="5.75" Y="7.125" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\MoveAbleObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Goudkoorts.SwitchOut">
+    <Position X="10.25" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAEAAAA=</HashCode>
+      <FileName>Model\SwitchOut.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Goudkoorts.Switch">
+    <Position X="9" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Switch.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Enum Name="Goudkoorts.Directions">

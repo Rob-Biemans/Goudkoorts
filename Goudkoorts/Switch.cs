@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Goudkoorts
 {
-    public class ActionField : Field
+    public abstract class Switch : ActionField
     {
 
     }

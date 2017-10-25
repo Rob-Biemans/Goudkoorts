@@ -25,12 +25,7 @@ namespace Goudkoorts
         
         public void ShowGameStatus(Game game)
         {
-            Console.WriteLine(game.getGameField().Count());
-            //TODO Print Map (Fields)
             PrintMap(game, game.getGameField());
-
-            // Print available MoveAbleObjects (Cart/Ship)
-
         }
 
         internal void PrintMap(Game game, LinkedList<Field> start)
@@ -82,9 +77,5 @@ namespace Goudkoorts
             input = Console.ReadKey();
         }
 
-        private void ShowCarts()
-        {
-
-        }
     }
 }

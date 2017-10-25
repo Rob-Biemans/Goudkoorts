@@ -53,10 +53,12 @@
     <Compile Include="Model\Dock.cs" />
     <Compile Include="Model\Field.cs" />
     <Compile Include="Model\Ship.cs" />
-    <Compile Include="Model\Switch.cs" />
+    <Compile Include="Model\SwitchIn.cs" />
     <Compile Include="Model\StaticField.cs" />
     <Compile Include="Model\Track.cs" />
     <Compile Include="Model\MoveAbleObject.cs" />
+    <Compile Include="Model\SwitchOut.cs" />
+    <Compile Include="Switch.cs" />
     <Compile Include="View\InputView.cs" />
     <Compile Include="Model\Game.cs" />
     <Compile Include="Model\Player.cs" />

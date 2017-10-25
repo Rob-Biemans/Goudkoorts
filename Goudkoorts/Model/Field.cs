@@ -10,11 +10,6 @@ namespace Goudkoorts
         protected Cart _cart;
         private BaseField _spot;
 
-        private BaseField North;
-        private BaseField East;
-        private BaseField South;
-        private BaseField West;
-
         private MoveAbleObject _MoveAbleObject { get; set; }
 
         public override string Icon()

@@ -19,10 +19,6 @@ namespace Goudkoorts
         private string _filePath = Path.GetDirectoryName(System.AppDomain.CurrentDomain.BaseDirectory);
         private LinkedList<Field> _gameField { get; set; }
 
-        protected Field _first; // wijst naar eerste element in de lijst
-        protected Field _last;  // wijst naar laatste element in de lijst
-        protected int _length; // is gelijk aan het aantal links in de lijst 
-
         private Timer aTimer;
 
         // Constructor
@@ -150,8 +146,17 @@ namespace Goudkoorts
                             this._gameField.AddLast(prev);
                             break;
 
+                        // In
                         case 'S':
-                            next = new Switch();
+                            next = new SwitchIn("S");
+                            prev.NextField = next;
+                            prev = next;
+                            this._gameField.AddLast(prev);
+                            break;
+
+                        // Out
+                        case 's':
+                            next = new SwitchOut("s");
                             prev.NextField = next;
                             prev = next;
                             this._gameField.AddLast(prev);
@@ -181,31 +186,53 @@ namespace Goudkoorts
                 }
             }
 
-            //generateTrackLinks();
+            generateTrackLinks();
 
         }
 
+        //Hardcoded due limited time
         public void generateTrackLinks()
         {
+            BaseField currentField = _gameField.First.Value;
+            {
 
+                    //39 warehouse ipv 40 (overal -1)
+                    //Console.WriteLine(_gameField.ElementAt(39));
 
-            // TODO
+                    _gameField.ElementAt(40).NextTrack = _gameField.ElementAt(41);
 
-            // 1 Eerste track
+                    if (currentField is Field)
+                    {
+                        currentField = ((Field)currentField).NextField;
+                    }
 
-            // 2 Daarom heen kijken waar de volgende track is.
-               // 2.1 in de link stoppen
+            }
+            checkTrackLinks();
+        }
 
-            // 3 Na de volgende track gaan en herhaal 2 etc.
-
-            BaseField field;
-            Track first;
-            //first = _gameField.Find(first);
-
-            foreach (var item in _gameField)
+        public void checkTrackLinks()
+        {
+            int i = 0;
+            foreach (var val in _gameField)
             {
                 
+
+                if (val is Track)
+                    Console.WriteLine("Track: " + i + " > " + val.NextTrack);
+
+                if (val is Switch)
+                    Console.WriteLine("Switch: " + i + " > " + val.NextTrack);
+
+                if (val is Dock)
+                    Console.WriteLine("Dock: " + i + " > " + val.NextTrack);
+
+                if (val is Yard)
+                    Console.WriteLine("Yard: " + i + " > " + val.NextTrack);
+
+                i++;
+
             }
+            Console.ReadKey();
         }
 
         public LinkedList<Field> getGameField()

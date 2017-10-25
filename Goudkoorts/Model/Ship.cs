@@ -8,13 +8,13 @@ namespace Goudkoorts
     public class Ship : MoveAbleObject
     {
         // Declarations
-        private int currentCarts;
-        private int maxCarts = 8;
+        private int currentGold;
+        private int maxGold = 8;
 
         // Constructor
         public Ship()
         {
-            this.currentCarts = 0;
+            this.currentGold = 0;
         }
 
         public override string Icon()
@@ -24,12 +24,12 @@ namespace Goudkoorts
 
         public int getCurrentAmountOfCarts()
         {
-            return currentCarts;
+            return currentGold;
         }
 
-        public void AddCartToShip()
+        public void AddGoldToShip()
         {
-            this.currentCarts++;
+            this.currentGold++;
         }
     }
 }
