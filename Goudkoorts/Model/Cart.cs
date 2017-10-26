@@ -30,5 +30,10 @@ namespace Goudkoorts
         {
             this._isFilled = false;
         }
+
+        public override bool Move()
+        {
+            return true;
+        }
     }
 }

@@ -30,6 +30,7 @@ namespace Goudkoorts
 
         internal void PrintMap(Game game, LinkedList<Field> start)
         {
+            Console.Clear();
             int i = 0;
             int index = 0;
             Console.OutputEncoding = System.Text.Encoding.UTF8;
@@ -46,8 +47,8 @@ namespace Goudkoorts
                         i = 0;
                     }
 
-                    if (start.ElementAt(index) != null) {
-                        Console.Write(start.ElementAt(index).Icon());
+                    if (start.ElementAt(index).MoveAbleObject != null) {
+                        Console.Write(start.ElementAt(index).MoveAbleObject.Icon());
                     } else {
                         Console.Write(currentField.Icon());
                     }

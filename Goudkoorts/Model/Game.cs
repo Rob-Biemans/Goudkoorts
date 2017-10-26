@@ -19,24 +19,13 @@ namespace Goudkoorts
         private string _filePath = Path.GetDirectoryName(System.AppDomain.CurrentDomain.BaseDirectory);
         private LinkedList<Field> _gameField { get; set; }
 
-        private Timer aTimer;
+        private int iets = 0;
 
         // Constructor
         public Game()
         {
             _player = new Player();
             generateField();
-
-            aTimer = new Timer(2000);
-            aTimer.Elapsed += OnTimedEvent;
-            aTimer.AutoReset = true;
-            aTimer.Enabled = true;
-        }
-
-        private void OnTimedEvent(object sender, ElapsedEventArgs e)
-        {
-            Console.WriteLine("ELAPSED");
-            //TODO MOVE CART en SHIP
         }
 
         public Boolean getGameOver()
@@ -148,7 +137,7 @@ namespace Goudkoorts
 
                         // In
                         case 'S':
-                            next = new SwitchIn("S");
+                            next = new SwitchIn("╭");
                             prev.NextField = next;
                             prev = next;
                             this._gameField.AddLast(prev);
@@ -156,7 +145,7 @@ namespace Goudkoorts
 
                         // Out
                         case 's':
-                            next = new SwitchOut("s");
+                            next = new SwitchOut("╮");
                             prev.NextField = next;
                             prev = next;
                             this._gameField.AddLast(prev);
@@ -173,8 +162,9 @@ namespace Goudkoorts
                         case '0':
                             next = new WaterField();
                             prev.NextField = next;
+                            next.PutMoveAbleObjectOnThisField(new Ship());
                             prev = next;
-                            this._gameField.AddLast(prev).Value = new Ship();
+                            this._gameField.AddLast(prev);
                             break;
 
                         default:
@@ -193,51 +183,159 @@ namespace Goudkoorts
         //Hardcoded due limited time
         public void generateTrackLinks()
         {
-            BaseField currentField = _gameField.First.Value;
-            {
 
-                    //39 warehouse ipv 40 (overal -1)
-                    //Console.WriteLine(_gameField.ElementAt(39));
+            _gameField.ElementAt(0).Next = _gameField.ElementAt(1);
+            _gameField.ElementAt(1).Next = _gameField.ElementAt(2);
+            _gameField.ElementAt(2).Next = _gameField.ElementAt(3);
+            _gameField.ElementAt(3).Next = _gameField.ElementAt(4);
+            _gameField.ElementAt(4).Next = _gameField.ElementAt(5);
+            _gameField.ElementAt(5).Next = _gameField.ElementAt(6);
+            _gameField.ElementAt(6).Next = _gameField.ElementAt(7);
+            _gameField.ElementAt(7).Next = _gameField.ElementAt(8);
+            _gameField.ElementAt(8).Next = _gameField.ElementAt(9);
+            _gameField.ElementAt(9).Next = _gameField.ElementAt(10);
+            _gameField.ElementAt(10).Next = _gameField.ElementAt(11);
+            _gameField.ElementAt(11).Next = _gameField.ElementAt(12);
 
-                    _gameField.ElementAt(40).NextTrack = _gameField.ElementAt(41);
+            _gameField.ElementAt(40).Next = _gameField.ElementAt(41);
+            _gameField.ElementAt(41).Next = _gameField.ElementAt(42);
+            _gameField.ElementAt(42).Next = _gameField.ElementAt(55);
+            _gameField.ElementAt(55).Next = _gameField.ElementAt(56);
+            _gameField.ElementAt(56).Next = _gameField.ElementAt(57);
 
-                    if (currentField is Field)
-                    {
-                        currentField = ((Field)currentField).NextField;
-                    }
+            // 57 kan ook naar 70
+            _gameField.ElementAt(57).Next = _gameField.ElementAt(44);
 
-            }
-            checkTrackLinks();
+            _gameField.ElementAt(44).Next = _gameField.ElementAt(45);
+            _gameField.ElementAt(45).Next = _gameField.ElementAt(46);
+            _gameField.ElementAt(46).Next = _gameField.ElementAt(47);
+            _gameField.ElementAt(47).Next = _gameField.ElementAt(48);
+            _gameField.ElementAt(48).Next = _gameField.ElementAt(61);
+            _gameField.ElementAt(61).Next = _gameField.ElementAt(62);
+            _gameField.ElementAt(62).Next = _gameField.ElementAt(63);
+            _gameField.ElementAt(63).Next = _gameField.ElementAt(50);
+            _gameField.ElementAt(50).Next = _gameField.ElementAt(37);
+            _gameField.ElementAt(37).Next = _gameField.ElementAt(24);
+            _gameField.ElementAt(24).Next = _gameField.ElementAt(23);
+            _gameField.ElementAt(23).Next = _gameField.ElementAt(22);
+            _gameField.ElementAt(22).Next = _gameField.ElementAt(21);
+            _gameField.ElementAt(21).Next = _gameField.ElementAt(20);
+            _gameField.ElementAt(20).Next = _gameField.ElementAt(19);
+            _gameField.ElementAt(19).Next = _gameField.ElementAt(18);
+            _gameField.ElementAt(18).Next = _gameField.ElementAt(17);
+            _gameField.ElementAt(17).Next = _gameField.ElementAt(16);
+            _gameField.ElementAt(16).Next = _gameField.ElementAt(15);
+            _gameField.ElementAt(15).Next = _gameField.ElementAt(14);
+            _gameField.ElementAt(14).Next = _gameField.ElementAt(13);
+
+            _gameField.ElementAt(57).Next = _gameField.ElementAt(70);
+            _gameField.ElementAt(70).Next = _gameField.ElementAt(71);
+            _gameField.ElementAt(71).Next = _gameField.ElementAt(84);
+            _gameField.ElementAt(84).Next = _gameField.ElementAt(85);
+
+            // 86 kan ook naar 99
+
+            _gameField.ElementAt(85).Next = _gameField.ElementAt(86);
+            _gameField.ElementAt(86).Next = _gameField.ElementAt(73);
+            _gameField.ElementAt(73).Next = _gameField.ElementAt(74);
+            _gameField.ElementAt(74).Next = _gameField.ElementAt(61);
+
+            _gameField.ElementAt(86).Next = _gameField.ElementAt(99);
+            _gameField.ElementAt(99).Next = _gameField.ElementAt(100);
+            _gameField.ElementAt(100).Next = _gameField.ElementAt(101);
+            _gameField.ElementAt(101).Next = _gameField.ElementAt(102);
+            _gameField.ElementAt(102).Next = _gameField.ElementAt(115);
+            _gameField.ElementAt(115).Next = _gameField.ElementAt(114);
+            _gameField.ElementAt(114).Next = _gameField.ElementAt(113);
+            _gameField.ElementAt(113).Next = _gameField.ElementAt(112);
+            _gameField.ElementAt(112).Next = _gameField.ElementAt(111);
+            _gameField.ElementAt(111).Next = _gameField.ElementAt(110);
+            _gameField.ElementAt(110).Next = _gameField.ElementAt(109);
+            _gameField.ElementAt(109).Next = _gameField.ElementAt(108);
+            _gameField.ElementAt(108).Next = _gameField.ElementAt(107);
+            _gameField.ElementAt(107).Next = _gameField.ElementAt(106);
+            _gameField.ElementAt(106).Next = _gameField.ElementAt(105);
+            _gameField.ElementAt(105).Next = _gameField.ElementAt(104);
+
+            _gameField.ElementAt(66).Next = _gameField.ElementAt(67);
+            _gameField.ElementAt(67).Next = _gameField.ElementAt(68);
+            _gameField.ElementAt(68).Next = _gameField.ElementAt(55);
+
+            _gameField.ElementAt(92).Next = _gameField.ElementAt(93);
+            _gameField.ElementAt(93).Next = _gameField.ElementAt(94);
+            _gameField.ElementAt(94).Next = _gameField.ElementAt(95);
+            _gameField.ElementAt(95).Next = _gameField.ElementAt(96);
+            _gameField.ElementAt(96).Next = _gameField.ElementAt(97);
+            _gameField.ElementAt(97).Next = _gameField.ElementAt(84);
+
+            // DEBUG METHOD
+            //checkTrackLinks();
         }
 
-        public void checkTrackLinks()
-        {
-            int i = 0;
-            foreach (var val in _gameField)
-            {
+        //public void checkTrackLinks()
+        //{
+        //    int i = 0;
+        //    foreach (var val in _gameField)
+        //    {
                 
+        //        if (val is WaterField)
+        //            Console.WriteLine("Waterfield: " + i + " > " + val.Next);
 
-                if (val is Track)
-                    Console.WriteLine("Track: " + i + " > " + val.NextTrack);
+        //        if (val is Track)
+        //            Console.WriteLine("Track: " + i + " > " + val.Next);
 
-                if (val is Switch)
-                    Console.WriteLine("Switch: " + i + " > " + val.NextTrack);
+        //        if (val is Switch)
+        //            Console.WriteLine("Switch: " + i + " > " + val.Next);
 
-                if (val is Dock)
-                    Console.WriteLine("Dock: " + i + " > " + val.NextTrack);
+        //        if (val is Dock)
+        //            Console.WriteLine("Dock: " + i + " > " + val.Next);
 
-                if (val is Yard)
-                    Console.WriteLine("Yard: " + i + " > " + val.NextTrack);
+        //        if (val is Yard)
+        //            Console.WriteLine("Yard: " + i + " > " + val.Next);
 
-                i++;
+        //        i++;
 
-            }
-            Console.ReadKey();
-        }
+        //    }
+        //    Console.ReadKey();
+        //}
 
         public LinkedList<Field> getGameField()
         {
             return this._gameField;
+        }
+
+        public void run()
+        {
+            var currentLink = _gameField.Last.Previous;
+            {
+                while(currentLink != null)
+                {
+                    var currentField = currentLink.Value;
+                    ((Field)currentField).move();
+
+                    if (iets == 0)
+                    {
+                        randomCart(currentField);
+                    }
+
+                    if (currentField is Field)
+                    {
+                        currentLink = currentLink.Previous;
+                    }
+                }
+                this.iets++;
+            }
+        }
+
+        public void randomCart(BaseField currentField)
+        {
+            
+            if (currentField is Warehouse)
+            {
+                _field = (Track)currentField.NextField;
+                _field.PutMoveAbleObjectOnThisField(new Cart());
+            }
+            
         }
 
     }

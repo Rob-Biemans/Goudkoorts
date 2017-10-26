@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Timers;
 
 namespace Goudkoorts
 {
     public class GameController
     {
         // Declarations
-        private OutputView _outputview { get; set; }
+        private Timer _aTimer { get; set; }
+        private LinkedList<Field> _gameField { get; set; }
 
+        private OutputView _outputview { get; set; }
         private InputView _inputview { get; set; }
 
         private Game _game { get; set; }
@@ -25,25 +28,48 @@ namespace Goudkoorts
         public void playGoudkoorts()
         {
             _outputview.ShowGameStart();
+
+            _aTimer = new Timer(5000);
+            _aTimer.Elapsed += OnTimedEvent;
+            _aTimer.AutoReset = true;
+            _aTimer.Enabled = true;
            
             while (!_game.getGameOver())
             {
                 Console.Clear();
-                // Print Game
+
                 _outputview.ShowGameStatus(_game);
-                // Ask for input (switch)
-                // and change switch state
-                _inputview.askForSwitchPick();
+
+                changeSwitch(_inputview.askForSwitchPick());
                 
                 //Console.WriteLine("NIET OVER");
                 //_game.setGameOver();
             }
 
-
             Console.WriteLine("GAME OVER!");
             Console.ReadKey();
         }
 
+        private void OnTimedEvent(object sender, ElapsedEventArgs e)
+        {
+            _game.run();
+            _outputview.ShowGameStatus(_game);
+        }
+
+        public void changeSwitch(int value)
+        {
+            int index = 1;
+            foreach (var val in _game.getGameField())
+            {
+                if (val is Switch)
+                {                     
+                    if (index == value && val.MoveAbleObject == null)
+                        ((Switch)val).changeDirection();
+
+                    index++;
+                }
+            }
+        }
 
     }
 }

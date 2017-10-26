@@ -8,13 +8,13 @@ namespace Goudkoorts
     public abstract class BaseField
     {
         virtual public BaseField NextField { get; set; }
-        virtual public BaseField NextTrack { get; set; }
+        virtual public BaseField Next { get; set; }
 
         public abstract string Icon();
 
-        public abstract void PutMoveAbleObjectOnThisField(Cart cart);
+        public abstract void PutMoveAbleObjectOnThisField(MoveAbleObject obj);
 
-        public abstract void RemoveMoveAbleObjectFromThisField(Cart cart);
+        public abstract void RemoveMoveAbleObjectFromThisField();
 
     }
 }

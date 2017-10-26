@@ -7,12 +7,12 @@ namespace Goudkoorts
 {
     public class Player
     {
-        private int score = 0;
+        private int score { get; set; }
 
         // Constructor
         public Player()
         {
-
+            this.score = 0;
         }
 
         public int getScore()

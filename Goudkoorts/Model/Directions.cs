@@ -5,8 +5,10 @@ using System.Text;
 
 namespace Goudkoorts
 {
+
     public enum Directions
     {
-        Up, Right, Down, Left
+        Up = 1, Down = 2
     }
+
 }

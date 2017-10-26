@@ -7,6 +7,6 @@ namespace Goudkoorts
 {
     public abstract class MoveAbleObject : Field
     {
-
+        public abstract bool Move();
     }
 }

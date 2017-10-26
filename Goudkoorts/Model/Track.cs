@@ -7,7 +7,7 @@ namespace Goudkoorts
 {
     public class Track : ActionField
     {
-        private string icon;
+        private string icon { get; set; }
 
         public Track(string value)
         {

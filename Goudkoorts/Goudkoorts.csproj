@@ -58,7 +58,7 @@
     <Compile Include="Model\Track.cs" />
     <Compile Include="Model\MoveAbleObject.cs" />
     <Compile Include="Model\SwitchOut.cs" />
-    <Compile Include="Switch.cs" />
+    <Compile Include="Model\Switch.cs" />
     <Compile Include="View\InputView.cs" />
     <Compile Include="Model\Game.cs" />
     <Compile Include="Model\Player.cs" />

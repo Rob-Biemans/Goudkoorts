@@ -7,52 +7,46 @@ namespace Goudkoorts
 {
     public class Field : BaseField
     {
-        protected Cart _cart;
-        private BaseField _spot;
 
-        private MoveAbleObject _MoveAbleObject { get; set; }
+        public MoveAbleObject MoveAbleObject { get; set; }
 
         public override string Icon()
         {
             return "F";
         }
 
-        public void moveTo()
+        public void move()
         {
-            BaseField oldSpot = _spot;
-            BaseField newSpot = oldSpot;
+            if (this.Next == null)
+            {
+                // Einde van de track/water
+                //this.RemoveMoveAbleObjectFromThisField();
+            }
+            else
+            {
+                this.Next.PutMoveAbleObjectOnThisField(this.MoveAbleObject);
+                this.RemoveMoveAbleObjectFromThisField();
+            }
 
-            //if (_spot is Laatste Track of Water)
-            //{
-                // Einde van de baan of water 
-                // dus Cart of Ship verdwijnt
-                oldSpot.RemoveMoveAbleObjectFromThisField(_cart);
-            //}
-
-            newSpot = newSpot.NextField;
-           
-            // update the fields (put and remove cart)
-            newSpot.PutMoveAbleObjectOnThisField(_cart);
-            _spot = newSpot;
-            oldSpot.RemoveMoveAbleObjectFromThisField(_cart);
         }
 
-        override public void PutMoveAbleObjectOnThisField(Cart cart)
+        override public void PutMoveAbleObjectOnThisField(MoveAbleObject obj)
         {
-            if (cart == null) {
-                this._cart = cart;
+            if (obj != null) {
+                this.MoveAbleObject = obj;
             } else {
                 // Er is al aan cart
                 // Gameover
+                //Console.WriteLine("GAMEOVER");
             }
         }
 
-        public override void RemoveMoveAbleObjectFromThisField(Cart cart)
+        public override void RemoveMoveAbleObjectFromThisField()
         {
-            if (this._cart == cart) {
-                this._cart = null;
+            if (this.MoveAbleObject != null) {
+                this.MoveAbleObject = null;
             } else {
-                // Theres no cart to be removed.
+                // Theres no cart/ship to be removed.
             }
         }
 
