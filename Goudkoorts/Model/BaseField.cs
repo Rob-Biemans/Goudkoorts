@@ -11,6 +11,7 @@ namespace Goudkoorts
         virtual public BaseField Next { get; set; }
 
         public abstract string Icon();
+        public abstract int Pos { get; set; }
 
         public abstract void PutMoveAbleObjectOnThisField(MoveAbleObject obj);
 

@@ -8,17 +8,15 @@ kar die langs de kade is gereden doet zijn lading in het schip
 
 schip vullen
 
-schip weg laten varen wanneer 8 karretjes aanwezig zijn
+#schip weg laten varen wanneer 8 karretjes aanwezig zijn
 
 pijl van richting op scherm zetten
 
-8 karretjes in 1 schip
+#8 karretjes in 1 schip
 
 karretjes kunnen alleen hun lading kwijt als het schip aan de kade is en niet vol zit
 
 schip vol = +10 punten voor speler
-
-daarna vertrekt het schip tot dat ie uit beeld is.
 
 kunnen meerdere schepen op het scherm zijn
 
@@ -43,7 +41,7 @@ Cart legen op schip
 
 -- Random cart en ship spawnen
 
-Volle ship weg varen
+#Volle ship weg varen
 
 -- Carts lopen niet de yard op (ook plaatst de cart zich in eens op een leeg veld daar onder de warehouse..) FIXEN PLS
 

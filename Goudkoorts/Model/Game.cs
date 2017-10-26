@@ -50,121 +50,82 @@ namespace Goudkoorts
             Field prev = null;
             Field next = null;
 
+            int i = 0;
+
             foreach (string line in lines)
             {
                 foreach (char Char in line)
                 {
-
+                    
                     if (prev == null) {
                         prev = new WaterField();
+                        prev.Pos = i;
                     }
 
                     switch (Char)
                     {
                         case '~':
                             next = new WaterField();
-                            prev.NextField = next;
-                            prev = next;
-                            this._gameField.AddLast(prev);
                             break;
 
                         case '-':
                             next = new Track("-");
-                            prev.NextField = next;
-                            prev = next;
-                            this._gameField.AddLast(prev);
                             break;
 
                         case '|':
                             next = new Track("|");
-                            prev.NextField = next;
-                            prev = next;
-                            this._gameField.AddLast(prev);
                             break;
 
                         case '.':
                             next = new EmptyField();
-                            prev.NextField = next;
-                            prev = next;
-                            this._gameField.AddLast(prev);
                             break;
 
                         case 'D':
                             next = new Dock();
-                            prev.NextField = next;
-                            prev = next;
-                            this._gameField.AddLast(prev);
                             break;
 
                         case 'Y':
                             next = new Yard();
-                            prev.NextField = next;
-                            prev = next;
-                            this._gameField.AddLast(prev);
                             break;
 
                         // ╮ 
                         case 'w':
                             next = new Track("╮");
-                            prev.NextField = next;
-                            prev = next;
-                            this._gameField.AddLast(prev);
                             break;
 
                         // ╭ 
                         case 'x':
                             next = new Track("╭");
-                            prev.NextField = next;
-                            prev = next;
-                            this._gameField.AddLast(prev);
                             break;
 
                         // ╯ 
                         case 'y':
                             next = new Track("╯");
-                            prev.NextField = next;
-                            prev = next;
-                            this._gameField.AddLast(prev);
                             break;
 
                         // ╰ 
                         case 'z':
                             next = new Track("╰");
-                            prev.NextField = next;
-                            prev = next;
-                            this._gameField.AddLast(prev);
                             break;
 
                         // In
                         case 'S':
                             next = new SwitchIn("╭");
-                            prev.NextField = next;
-                            prev = next;
-                            this._gameField.AddLast(prev);
                             break;
 
                         // Out
                         case 's':
                             next = new SwitchOut("╮");
-                            prev.NextField = next;
-                            prev = next;
-                            this._gameField.AddLast(prev);
                             break;
 
                         case 'A':
                             next = new Warehouse();
-                            prev.NextField = next;
-                            prev = next;
-                            this._gameField.AddLast(prev);
                             break;
 
                         // Ship
                         case '0':
                             next = new WaterField();
-                            prev.NextField = next;
-                            next.PutMoveAbleObjectOnThisField(new Ship());
-                            prev = next;
-                            this._gameField.AddLast(prev);
+                            next.PutMoveAbleObjectOnThisField(new Ship() { Pos = i } );
                             break;
 
                         default:
@@ -173,6 +134,12 @@ namespace Goudkoorts
                             break;
                     }
 
+                    next.Pos = i;
+                    prev.NextField = next;
+                    prev = next;
+                    this._gameField.AddLast(prev);
+
+                    i++;
                 }
             }
 
@@ -311,7 +278,9 @@ namespace Goudkoorts
                 while(currentLink != null)
                 {
                     var currentField = currentLink.Value;
-                    ((Field)currentField).move();
+
+                    if (((Field)currentField).MoveAbleObject != null)
+                        ((Field)currentField).move();
 
                     if (iets == 0)
                     {
@@ -335,6 +304,7 @@ namespace Goudkoorts
                 _field = (Track)currentField.NextField;
                 _field.PutMoveAbleObjectOnThisField(new Cart());
             }
+
             // kijken of het een warehouse is
             // random getal genereren tussen de 0 en 2
             // juiste warehouse selecteren

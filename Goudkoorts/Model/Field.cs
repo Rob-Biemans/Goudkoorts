@@ -10,6 +10,8 @@ namespace Goudkoorts
 
         public MoveAbleObject MoveAbleObject { get; set; }
 
+        public override int Pos { get; set; }
+
         public override string Icon()
         {
             return "F";
@@ -22,7 +24,7 @@ namespace Goudkoorts
                 // Einde van de track/water
                 //this.RemoveMoveAbleObjectFromThisField();
             }
-            else
+            else if (this.MoveAbleObject.Move() == true)
             {
                 this.Next.PutMoveAbleObjectOnThisField(this.MoveAbleObject);
                 this.RemoveMoveAbleObjectFromThisField();
