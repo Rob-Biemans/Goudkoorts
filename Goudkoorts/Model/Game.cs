@@ -335,8 +335,25 @@ namespace Goudkoorts
                 _field = (Track)currentField.NextField;
                 _field.PutMoveAbleObjectOnThisField(new Cart());
             }
-            
+            // kijken of het een warehouse is
+            // random getal genereren tussen de 0 en 2
+            // juiste warehouse selecteren
+            // bij die warehouse een karretje spawnen
+            /*
+            int index = 1;
+            foreach (var val in _game.getGameField())
+            {
+                if (val is Warehouse)
+                {                     
+                    if (index == value && val.MoveAbleObject == null)
+                        ((Switch)val).changeDirection();
+
+                    index++;
+                }
+            }
+            */
         }
 
     }
 }
+ 
