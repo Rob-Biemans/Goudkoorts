@@ -10,8 +10,6 @@ namespace Goudkoorts
         // Declarations
         private int currentGold { get; set; }
 
-        public Dock _dock { get; set; }
-
         private int maxGold = 8;
 
         // Constructor
@@ -37,13 +35,9 @@ namespace Goudkoorts
 
         public override bool Move()
         {
-            // Als het niet aan de dock ligt dan mag je bewegen
-                // wel aan de dock? dan moet je 8 gold hebben
 
-            // Als het 8 gold heeft en aan de dock zit, mag je weer moven
-            if (this.currentGold == 8) {
-                return true;
-            }
+            if (this.Pos == 8 && this.currentGold < maxGold)
+                return false;
 
             return true;
         }
