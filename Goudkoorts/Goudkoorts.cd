@@ -47,7 +47,7 @@
   <Class Name="Goudkoorts.BaseField">
     <Position X="9.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AgAAAAAgAAAAAAAAAAAAAAAAAACAAAAAAAAAAAEAECA=</HashCode>
+      <HashCode>AgAAAAAgAAAAAAAAAAAAAAAAAACAAAAAAAAAAAEAECQ=</HashCode>
       <FileName>Model\BaseField.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -76,7 +76,7 @@
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAgAAAAAACAAAAAAAAAAACAAAEAAAAAAAEAACA=</HashCode>
+      <HashCode>AAAAAAAgAAAAAACAAAAAAAAAAACAAAEAAAAAAAEAACQ=</HashCode>
       <FileName>Model\Field.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -86,7 +86,7 @@
   <Class Name="Goudkoorts.Dock">
     <Position X="4.5" Y="10" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAQ=</HashCode>
       <FileName>Model\Dock.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -174,9 +174,9 @@
     <Position X="4.25" Y="6.75" Width="1.5" />
     <InheritanceLine Type="Goudkoorts.Field" FixedToPoint="true">
       <Path>
-        <Point X="8" Y="6.761" />
-        <Point X="8" Y="7.125" />
-        <Point X="5.75" Y="7.125" />
+        <Point X="8" Y="6.954" />
+        <Point X="8" Y="7.188" />
+        <Point X="5.75" Y="7.188" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
@@ -208,7 +208,7 @@
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>BAAAQAAAAIAAAAAAAAAAAAABAAAAAAAEAAAAAAEAAAA=</HashCode>
+      <HashCode>BAAAQAAAAIEAAAAAAAAAAAABAAAAAAAEAAAAAAEAAAA=</HashCode>
       <FileName>Model\Ship.cs</FileName>
     </TypeIdentifier>
   </Class>

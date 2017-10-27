@@ -36,10 +36,18 @@ namespace Goudkoorts
         public override bool Move()
         {
 
-            if (this.Pos == 8 && this.currentGold < maxGold)
+            if (IsAtDock() && this.currentGold < maxGold)
                 return false;
 
             return true;
+        }
+
+        public bool IsAtDock()
+        {
+            if (this.Pos == 8)
+                return true;
+
+            return false;
         }
     }
 }

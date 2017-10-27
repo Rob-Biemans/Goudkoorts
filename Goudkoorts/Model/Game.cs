@@ -273,6 +273,7 @@ namespace Goudkoorts
 
         public void run()
         {
+            int index = 0;
             var currentLink = _gameField.Last.Previous;
             {
                 while(currentLink != null)
@@ -280,7 +281,10 @@ namespace Goudkoorts
                     var currentField = currentLink.Value;
 
                     if (((Field)currentField).MoveAbleObject != null)
+                    {
                         ((Field)currentField).move();
+                        ((Field)currentField).Action(this);
+                    }
 
                     if (iets == 0)
                     {
@@ -291,7 +295,9 @@ namespace Goudkoorts
                     {
                         currentLink = currentLink.Previous;
                     }
+                    index++;
                 }
+ 
                 this.iets++;
             }
         }
@@ -299,7 +305,7 @@ namespace Goudkoorts
         public void randomCart(BaseField currentField)
         {
             
-            if (currentField is Warehouse)
+            if (currentField is Dock)
             {
                 _field = (Track)currentField.NextField;
                 _field.PutMoveAbleObjectOnThisField(new Cart());

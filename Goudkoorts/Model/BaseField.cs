@@ -17,5 +17,7 @@ namespace Goudkoorts
 
         public abstract void RemoveMoveAbleObjectFromThisField();
 
+        public abstract void Action(Game game);
+
     }
 }

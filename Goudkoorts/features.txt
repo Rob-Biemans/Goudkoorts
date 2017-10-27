@@ -2,11 +2,11 @@
 
 #iedere tijdsinterval alle karretjes 1 stap laten zetten als dat kan
 
-kar die langs de kade is gereden doet zijn lading in het schip
+???kar die langs de kade is gereden doet zijn lading in het schip
 
 #kar rijdt van het scherm af en wordt verwijderd (DIT MOET NOG WORDEN VOOR KOMEN BIJ DE YARD)
 
-schip vullen
+???schip vullen
 
 #schip weg laten varen wanneer 8 karretjes aanwezig zijn
 
@@ -14,7 +14,7 @@ pijl van richting op scherm zetten
 
 #8 karretjes in 1 schip
 
-karretjes kunnen alleen hun lading kwijt als het schip aan de kade is en niet vol zit
+???karretjes kunnen alleen hun lading kwijt als het schip aan de kade is en niet vol zit
 
 schip vol = +10 punten voor speler
 
@@ -26,7 +26,7 @@ als wissel niet goed staat kan het karretje er niet op en blijft het karretje op
 
 #als karretjes botsen stopt het speler ~~ZIE PutMoveAbleObjectOnThisField() in Field class
 
-als het schip vol is rijdt het volle karretje er langs zonder de lading te lossen
+???als het schip vol is rijdt het volle karretje er langs zonder de lading te lossen
 
 karretjes kunnen op het rangeerterrein komen zonder te botsen
 
@@ -37,7 +37,7 @@ hoe langer het spel doorgaat hoe meer karretjes er komen en hoe korter de tijdsi
 
 Cart door switches heen
 
-Cart legen op schip
+???Cart legen op schip
 
 -- Random cart en ship spawnen
 
@@ -53,3 +53,4 @@ Cart legen op schip
 
 
 # =  klaar
+??? = mee bezig

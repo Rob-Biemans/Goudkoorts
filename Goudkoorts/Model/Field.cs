@@ -12,6 +12,11 @@ namespace Goudkoorts
 
         public override int Pos { get; set; }
 
+        public override void Action(Game game)
+        {
+            
+        }
+
         public override string Icon()
         {
             return "F";
@@ -52,5 +57,6 @@ namespace Goudkoorts
             }
         }
 
+        
     }
 }
