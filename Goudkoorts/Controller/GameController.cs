@@ -52,8 +52,15 @@ namespace Goudkoorts
 
         private void OnTimedEvent(object sender, ElapsedEventArgs e)
         {
-            _game.run();
-            _outputview.ShowGameStatus(_game);
+            try
+            {
+                _game.run();
+                _outputview.ShowGameStatus(_game);
+            }
+            catch (Exception a)
+            {
+                Console.WriteLine(a);
+            }
         }
 
         public void changeSwitch(int value)

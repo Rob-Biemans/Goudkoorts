@@ -33,7 +33,7 @@ namespace Goudkoorts
             this.currentGold++;
         }
 
-        public override bool Move()
+        public bool CheckMove()
         {
 
             if (IsAtDock() && this.currentGold < maxGold)
@@ -48,6 +48,27 @@ namespace Goudkoorts
                 return true;
 
             return false;
+        }
+
+        public override void move(Game game)
+        {
+            LinkedList<Field> field = game.getGameField();
+            BaseField _field = field.ElementAt(this.Pos);
+
+            if (_field.Next == null)
+            {
+                game.getPlayer().increaseScore();
+
+                _field.RemoveMoveAbleObjectFromThisField();
+            }
+            else if (field.ElementAt(this.Pos+1).MoveAbleObject != null)
+            {
+                
+            } else if (CheckMove() == true)
+            {
+                _field.Next.PutMoveAbleObjectOnThisField(this);
+                _field.RemoveMoveAbleObjectFromThisField();
+            }
         }
     }
 }

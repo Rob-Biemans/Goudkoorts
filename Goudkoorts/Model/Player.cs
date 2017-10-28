@@ -22,7 +22,7 @@ namespace Goudkoorts
 
         public void increaseScore()
         {
-            this.score++;
+            this.score += 10;
         }
     }
 }

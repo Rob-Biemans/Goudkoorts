@@ -31,9 +31,23 @@ namespace Goudkoorts
             this._isFilled = false;
         }
 
-        public override bool Move()
+        public override void move(Game game)
         {
-            return true;
+            LinkedList<Field> field = game.getGameField();
+            BaseField _field = field.ElementAt(this.Pos);
+
+            if (_field.Next == null)
+            {
+                _field.RemoveMoveAbleObjectFromThisField();
+            }
+            else
+            {
+                _field.Next.PutMoveAbleObjectOnThisField(this);
+                _field.RemoveMoveAbleObjectFromThisField();
+            }
+
+
         }
+
     }
 }

@@ -18,13 +18,12 @@ namespace Goudkoorts
         public override void Action(Game _game)
         {
             LinkedList<Field> list = _game.getGameField();
-            _ship = list.ElementAt(16).MoveAbleObject;
-            if (this.MoveAbleObject != null && ((Ship)_ship).IsAtDock())
+            _ship = list.ElementAt(8).MoveAbleObject;
+
+            if (_ship != null && this.MoveAbleObject != null && ((Ship)_ship).IsAtDock())
             {
                 ((Ship)_ship).AddGoldToShip();
-                Console.WriteLine("GOLD ADDED");
-                Console.ReadKey();
-            } 
+            }
         }
 
     }

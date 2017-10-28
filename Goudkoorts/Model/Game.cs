@@ -125,7 +125,8 @@ namespace Goudkoorts
                         // Ship
                         case '0':
                             next = new WaterField();
-                            next.PutMoveAbleObjectOnThisField(new Ship() { Pos = i } );
+                            next.Pos = i;
+                            next.PutMoveAbleObjectOnThisField(new Ship());
                             break;
 
                         default:
@@ -271,6 +272,11 @@ namespace Goudkoorts
             return this._gameField;
         }
 
+        public Player getPlayer()
+        {
+            return this._player;
+        }
+
         public void run()
         {
             int index = 0;
@@ -282,12 +288,14 @@ namespace Goudkoorts
 
                     if (((Field)currentField).MoveAbleObject != null)
                     {
-                        ((Field)currentField).move();
                         ((Field)currentField).Action(this);
+                        ((Field)currentField).MoveAbleObject.move(this);
                     }
 
+                    // Spawn once 3 carts and a ship
                     if (iets == 0)
                     {
+                        randomShip(currentField);
                         randomCart(currentField);
                     }
 
@@ -299,6 +307,15 @@ namespace Goudkoorts
                 }
  
                 this.iets++;
+            }
+        }
+
+        public void randomShip(BaseField currentField)
+        {
+            if (currentField is WaterField && currentField.Pos == 0)
+            {
+                _field = (WaterField)currentField.NextField;
+                _field.PutMoveAbleObjectOnThisField(new Ship());
             }
         }
 

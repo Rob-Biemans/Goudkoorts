@@ -22,29 +22,16 @@ namespace Goudkoorts
             return "F";
         }
 
-        public void move()
-        {
-            if (this.Next == null)
-            {
-                // Einde van de track/water
-                //this.RemoveMoveAbleObjectFromThisField();
-            }
-            else if (this.MoveAbleObject.Move() == true)
-            {
-                this.Next.PutMoveAbleObjectOnThisField(this.MoveAbleObject);
-                this.RemoveMoveAbleObjectFromThisField();
-            }
-
-        }
-
         override public void PutMoveAbleObjectOnThisField(MoveAbleObject obj)
         {
             if (obj != null) {
                 this.MoveAbleObject = obj;
+                this.MoveAbleObject.Pos = this.Pos;
             } else {
-                // Er is al aan cart
+                // Cart found!
                 // Gameover
                 //Console.WriteLine("GAMEOVER");
+                //Console.ReadKey();
             }
         }
 
