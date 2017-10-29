@@ -10,7 +10,7 @@ namespace Goudkoorts
     {
         // Declarations
         private Timer _aTimer { get; set; }
-        private int interval = 1000;
+        private int interval = 5000;
         private LinkedList<Field> _gameField { get; set; }
 
         private OutputView _outputview { get; set; }
@@ -71,7 +71,7 @@ namespace Goudkoorts
             }
             catch (Exception a)
             {
-                Console.WriteLine(a);
+                
             }
         }
 
