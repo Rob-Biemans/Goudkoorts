@@ -13,5 +13,6 @@ namespace Goudkoorts
         public abstract Directions getDirection();
 
         public abstract void changeDirection();
+
     }
 }

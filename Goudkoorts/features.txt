@@ -26,20 +26,20 @@ als wissel niet goed staat kan het karretje er niet op en blijft het karretje op
 
 #als het schip vol is rijdt het volle karretje er langs zonder de lading te lossen
 
-karretjes kunnen op het rangeerterrein komen zonder te botsen
+#karretjes kunnen op het rangeerterrein komen zonder te botsen
 
-hoe langer het spel doorgaat hoe meer karretjes er komen en hoe korter de tijdsinterval wordt
+#hoe langer het spel doorgaat hoe meer karretjes er komen en hoe korter de tijdsinterval wordt
 
 
 #Move Cart en ship
 
 #Cart legen op schip
 
--- Random cart en ship spawnen
+#Random cart en ship spawnen
 
 #Volle ship weg varen
 
--- Carts lopen niet de yard op (ook plaatst de cart zich in eens op een leeg veld daar onder de warehouse..) FIXEN PLS
+# Carts lopen niet de yard op (ook plaatst de cart zich in eens op een leeg veld daar onder de warehouse..) FIXEN PLS
 
 #Einde track cart en ship verwijderen
 

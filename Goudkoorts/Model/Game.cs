@@ -19,7 +19,9 @@ namespace Goudkoorts
         private string _filePath = Path.GetDirectoryName(System.AppDomain.CurrentDomain.BaseDirectory);
         private LinkedList<Field> _gameField { get; set; }
 
-        private int iets = 0;
+        private OutputView _outputview { get; set; }
+
+        private int prevRandom = 0;
 
         // Constructor
         public Game()
@@ -148,7 +150,6 @@ namespace Goudkoorts
 
         }
 
-        //Hardcoded due limited time
         public void generateTrackLinks()
         {
 
@@ -223,7 +224,6 @@ namespace Goudkoorts
             _gameField.ElementAt(108).Next = _gameField.ElementAt(107);
             _gameField.ElementAt(107).Next = _gameField.ElementAt(106);
             _gameField.ElementAt(106).Next = _gameField.ElementAt(105);
-            _gameField.ElementAt(105).Next = _gameField.ElementAt(104);
 
             _gameField.ElementAt(66).Next = _gameField.ElementAt(67);
             _gameField.ElementAt(67).Next = _gameField.ElementAt(68);
@@ -236,36 +236,7 @@ namespace Goudkoorts
             _gameField.ElementAt(96).Next = _gameField.ElementAt(97);
             _gameField.ElementAt(97).Next = _gameField.ElementAt(84);
 
-            // DEBUG METHOD
-            //checkTrackLinks();
         }
-
-        //public void checkTrackLinks()
-        //{
-        //    int i = 0;
-        //    foreach (var val in _gameField)
-        //    {
-                
-        //        if (val is WaterField)
-        //            Console.WriteLine("Waterfield: " + i + " > " + val.Next);
-
-        //        if (val is Track)
-        //            Console.WriteLine("Track: " + i + " > " + val.Next);
-
-        //        if (val is Switch)
-        //            Console.WriteLine("Switch: " + i + " > " + val.Next);
-
-        //        if (val is Dock)
-        //            Console.WriteLine("Dock: " + i + " > " + val.Next);
-
-        //        if (val is Yard)
-        //            Console.WriteLine("Yard: " + i + " > " + val.Next);
-
-        //        i++;
-
-        //    }
-        //    Console.ReadKey();
-        //}
 
         public LinkedList<Field> getGameField()
         {
@@ -279,7 +250,11 @@ namespace Goudkoorts
 
         public void run()
         {
-            int index = 0;
+            Random rnd = new Random();
+            int shipCount = 0;
+            List<Field> moveAbleList = new List<Field>();
+            List<Field> warehouseList = new List<Field>();
+
             var currentLink = _gameField.Last.Previous;
             {
                 while(currentLink != null)
@@ -288,29 +263,43 @@ namespace Goudkoorts
 
                     if (((Field)currentField).MoveAbleObject != null)
                     {
+                        moveAbleList.Add(currentField.MoveAbleObject);
                         ((Field)currentField).Action(this);
-                        ((Field)currentField).MoveAbleObject.move(this);
+
+                        if (currentField.MoveAbleObject is Ship)
+                            shipCount++;
                     }
 
-                    // Spawn once 3 carts and a ship
-                    if (iets == 0)
-                    {
-                        randomShip(currentField);
-                        randomCart(currentField);
-                    }
+                    if (shipCount <= 1)
+                        spawnShip(currentField);
 
+                    if (currentField is Warehouse)
+                        warehouseList.Add(currentField);
+                    
                     if (currentField is Field)
                     {
                         currentLink = currentLink.Previous;
                     }
-                    index++;
+                    
                 }
- 
-                this.iets++;
+
+                foreach (var item in moveAbleList)
+                {
+                    ((MoveAbleObject)item).move(this);
+                }
+
+                System.Threading.Thread.Sleep(1);
+                int r = rnd.Next(1, 3);
+
+                if (r != prevRandom)
+                    randomCart(warehouseList.ElementAt(r));
+
+                prevRandom = r;
+
             }
         }
 
-        public void randomShip(BaseField currentField)
+        public void spawnShip(BaseField currentField)
         {
             if (currentField is WaterField && currentField.Pos == 0)
             {
@@ -321,30 +310,8 @@ namespace Goudkoorts
 
         public void randomCart(BaseField currentField)
         {
-            
-            if (currentField is Dock)
-            {
-                _field = (Track)currentField.NextField;
-                _field.PutMoveAbleObjectOnThisField(new Cart());
-            }
-
-            // kijken of het een warehouse is
-            // random getal genereren tussen de 0 en 2
-            // juiste warehouse selecteren
-            // bij die warehouse een karretje spawnen
-            /*
-            int index = 1;
-            foreach (var val in _game.getGameField())
-            {
-                if (val is Warehouse)
-                {                     
-                    if (index == value && val.MoveAbleObject == null)
-                        ((Switch)val).changeDirection();
-
-                    index++;
-                }
-            }
-            */
+            _field = (Track)currentField.NextField;
+            _field.PutMoveAbleObjectOnThisField(new Cart());
         }
 
     }

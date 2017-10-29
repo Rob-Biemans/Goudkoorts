@@ -43,7 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\BeginWaterField.cs" />
     <Compile Include="Model\ActionField.cs" />
     <Compile Include="Model\Directions.cs" />
     <Compile Include="Model\EmptyField.cs" />

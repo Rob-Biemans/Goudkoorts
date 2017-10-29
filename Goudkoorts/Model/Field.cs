@@ -14,7 +14,15 @@ namespace Goudkoorts
 
         public override void Action(Game game)
         {
-            
+
+        }
+
+        public override bool ContainsMoveAbleObject()
+        {
+            if (this.MoveAbleObject != null)
+                return true;
+
+            return false;
         }
 
         public override string Icon()
@@ -24,14 +32,13 @@ namespace Goudkoorts
 
         override public void PutMoveAbleObjectOnThisField(MoveAbleObject obj)
         {
-            if (obj != null) {
+            if (obj != null && this.MoveAbleObject == null) {
                 this.MoveAbleObject = obj;
                 this.MoveAbleObject.Pos = this.Pos;
             } else {
                 // Cart found!
                 // Gameover
-                //Console.WriteLine("GAMEOVER");
-                //Console.ReadKey();
+               // game.setGameOver();
             }
         }
 

@@ -34,7 +34,7 @@ namespace Goudkoorts
             int i = 0;
             int index = 0;
             Console.OutputEncoding = System.Text.Encoding.UTF8;
-            Console.WriteLine(start.Count);
+            Console.WriteLine("Player Score:" + game.getPlayer().getScore());
 
             BaseField currentField = start.First.Value;
             {
@@ -65,17 +65,15 @@ namespace Goudkoorts
             }
         }
 
-        public void ShowGameOver(string winner)
+        public void ShowGameOver(Game game)
         {
             ConsoleKeyInfo input;
             Console.Clear();
-
-            //TODO
-            // Punten calc
-            Console.WriteLine("You have collected in total: ");
+            Console.WriteLine("You have collected in total: " + game.getPlayer().getScore());
             Console.WriteLine("===== game over =====");
-            Console.WriteLine("> press key to continue");
+            Console.WriteLine("> press key to exit");
             input = Console.ReadKey();
+            Environment.Exit(0);
         }
 
     }

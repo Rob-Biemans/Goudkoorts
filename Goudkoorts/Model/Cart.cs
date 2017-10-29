@@ -46,7 +46,6 @@ namespace Goudkoorts
                 _field.RemoveMoveAbleObjectFromThisField();
             }
 
-
         }
 
     }

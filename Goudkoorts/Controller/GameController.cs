@@ -16,6 +16,7 @@ namespace Goudkoorts
         private InputView _inputview { get; set; }
 
         private Game _game { get; set; }
+        private bool switchAllowed { get; set; }
 
         // Constructor
         public GameController()
@@ -29,11 +30,12 @@ namespace Goudkoorts
         {
             _outputview.ShowGameStart();
 
-            _aTimer = new Timer(5000);
+            _aTimer = new Timer(1000);
             _aTimer.Elapsed += OnTimedEvent;
             _aTimer.AutoReset = true;
             _aTimer.Enabled = true;
-           
+
+
             while (!_game.getGameOver())
             {
                 Console.Clear();
@@ -41,21 +43,29 @@ namespace Goudkoorts
                 _outputview.ShowGameStatus(_game);
 
                 changeSwitch(_inputview.askForSwitchPick());
-                
-                //Console.WriteLine("NIET OVER");
-                //_game.setGameOver();
             }
 
-            Console.WriteLine("GAME OVER!");
-            Console.ReadKey();
         }
 
         private void OnTimedEvent(object sender, ElapsedEventArgs e)
         {
+            
+            switchAllowed = true;
+
+            if (_game.getGameOver() == true)
+            {
+                _aTimer.Stop();
+                _outputview.ShowGameOver(_game);
+            }
+
             try
             {
+                //TODO
+                //_aTimer.Interval = ((_aTimer.Interval) -= (_game.getPlayer().getScore()));
                 _game.run();
                 _outputview.ShowGameStatus(_game);
+                changeSwitch(_inputview.askForSwitchPick());
+                switchAllowed = false;
             }
             catch (Exception a)
             {
@@ -68,7 +78,7 @@ namespace Goudkoorts
             int index = 1;
             foreach (var val in _game.getGameField())
             {
-                if (val is Switch)
+                if (val is Switch && switchAllowed == true)
                 {                     
                     if (index == value && val.MoveAbleObject == null)
                         ((Switch)val).changeDirection();
