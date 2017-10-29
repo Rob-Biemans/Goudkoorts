@@ -10,6 +10,7 @@ namespace Goudkoorts
     {
         // Declarations
         private Timer _aTimer { get; set; }
+        private int interval = 1000;
         private LinkedList<Field> _gameField { get; set; }
 
         private OutputView _outputview { get; set; }
@@ -30,11 +31,10 @@ namespace Goudkoorts
         {
             _outputview.ShowGameStart();
 
-            _aTimer = new Timer(1000);
+            _aTimer = new Timer(interval);
             _aTimer.Elapsed += OnTimedEvent;
             _aTimer.AutoReset = true;
             _aTimer.Enabled = true;
-
 
             while (!_game.getGameOver())
             {
@@ -60,8 +60,10 @@ namespace Goudkoorts
 
             try
             {
-                //TODO
-                //_aTimer.Interval = ((_aTimer.Interval) -= (_game.getPlayer().getScore()));
+                int temp = (interval - _game.getPlayer().getScore());
+                if (temp >= 0)
+                    _aTimer.Interval = temp;
+
                 _game.run();
                 _outputview.ShowGameStatus(_game);
                 changeSwitch(_inputview.askForSwitchPick());

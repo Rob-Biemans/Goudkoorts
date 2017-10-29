@@ -33,9 +33,9 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Goudkoorts.GameController">
-    <Position X="8.25" Y="1.75" Width="1.5" />
+    <Position X="8.25" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IAAFAAAAAAAAAAAAYAAAAAAAAAAIAAAAAAAABBAAAAQ=</HashCode>
+      <HashCode>IAAFAAAAAAAAAAAAYAAAAACAAAAIAAAAAAAABBAAAAQ=</HashCode>
       <FileName>Controller\GameController.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -93,14 +93,14 @@
   <Class Name="Goudkoorts.Yard">
     <Position X="6.25" Y="10" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAACA=</HashCode>
       <FileName>Model\Yard.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Goudkoorts.SwitchIn">
     <Position X="11.75" Y="8.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAggAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAEAACA=</HashCode>
+      <HashCode>AAAAAAgAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAEAACA=</HashCode>
       <FileName>Model\SwitchIn.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -181,8 +181,8 @@
     <Position X="4.5" Y="6" Width="1.5" />
     <InheritanceLine Type="Goudkoorts.Field" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="7.25" Y="6.688" />
-        <Point X="6.875" Y="6.688" />
+        <Point X="7.25" Y="6.625" />
+        <Point X="6.875" Y="6.625" />
         <Point X="6.875" Y="6.669" />
         <Point X="6" Y="6.669" />
       </Path>

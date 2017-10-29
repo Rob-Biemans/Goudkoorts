@@ -44,10 +44,13 @@ namespace Goudkoorts
         {
             this._gameField = new LinkedList<Field>();
 
+           
             _filePath = Directory.GetParent(Directory.GetParent(_filePath).FullName).FullName;
             _filePath += @"\Level\map1.txt";
 
+
             string[] lines = System.IO.File.ReadAllLines(_filePath);
+
 
             Field prev = null;
             Field next = null;
@@ -128,7 +131,7 @@ namespace Goudkoorts
                         case '0':
                             next = new WaterField();
                             next.Pos = i;
-                            next.PutMoveAbleObjectOnThisField(new Ship());
+                            next.PutMoveAbleObjectOnThisField(new Ship(), this);
                             break;
 
                         default:
@@ -172,7 +175,7 @@ namespace Goudkoorts
             _gameField.ElementAt(55).Next = _gameField.ElementAt(56);
             _gameField.ElementAt(56).Next = _gameField.ElementAt(57);
 
-            // 57 kan ook naar 70
+
             _gameField.ElementAt(57).Next = _gameField.ElementAt(44);
 
             _gameField.ElementAt(44).Next = _gameField.ElementAt(45);
@@ -202,7 +205,7 @@ namespace Goudkoorts
             _gameField.ElementAt(71).Next = _gameField.ElementAt(84);
             _gameField.ElementAt(84).Next = _gameField.ElementAt(85);
 
-            // 86 kan ook naar 99
+
 
             _gameField.ElementAt(85).Next = _gameField.ElementAt(86);
             _gameField.ElementAt(86).Next = _gameField.ElementAt(73);
@@ -251,9 +254,9 @@ namespace Goudkoorts
         public void run()
         {
             Random rnd = new Random();
-            int shipCount = 0;
             List<Field> moveAbleList = new List<Field>();
             List<Field> warehouseList = new List<Field>();
+            int shipCount = 0;
 
             var currentLink = _gameField.Last.Previous;
             {
@@ -304,14 +307,14 @@ namespace Goudkoorts
             if (currentField is WaterField && currentField.Pos == 0)
             {
                 _field = (WaterField)currentField.NextField;
-                _field.PutMoveAbleObjectOnThisField(new Ship());
+                _field.PutMoveAbleObjectOnThisField(new Ship(), this);
             }
         }
 
         public void randomCart(BaseField currentField)
         {
             _field = (Track)currentField.NextField;
-            _field.PutMoveAbleObjectOnThisField(new Cart());
+            _field.PutMoveAbleObjectOnThisField(new Cart(), this);
         }
 
     }

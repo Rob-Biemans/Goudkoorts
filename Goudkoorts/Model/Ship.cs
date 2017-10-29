@@ -59,15 +59,14 @@ namespace Goudkoorts
             {
                 game.getPlayer().increaseScore();
 
-                _field.RemoveMoveAbleObjectFromThisField();
+                _field.RemoveMoveAbleObjectFromThisField(true);
             }
             else if (field.ElementAt(this.Pos+1).MoveAbleObject != null)
             {
                 
             } else if (CheckMove() == true)
             {
-                _field.Next.PutMoveAbleObjectOnThisField(this);
-                _field.RemoveMoveAbleObjectFromThisField();
+                _field.RemoveMoveAbleObjectFromThisField(_field.Next.PutMoveAbleObjectOnThisField(this, game));
             }
         }
     }

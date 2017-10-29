@@ -13,9 +13,9 @@ namespace Goudkoorts
         public abstract string Icon();
         public abstract int Pos { get; set; }
 
-        public abstract void PutMoveAbleObjectOnThisField(MoveAbleObject obj);
+        public abstract bool PutMoveAbleObjectOnThisField(MoveAbleObject obj, Game game);
 
-        public abstract void RemoveMoveAbleObjectFromThisField();
+        public abstract void RemoveMoveAbleObjectFromThisField(bool val);
 
         public abstract bool ContainsMoveAbleObject();
 

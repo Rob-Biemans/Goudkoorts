@@ -12,5 +12,17 @@ namespace Goudkoorts
             return "Y";
         }
 
+        public override bool PutMoveAbleObjectOnThisField(MoveAbleObject obj, Game game)
+        {
+
+            if (obj != null && this.MoveAbleObject == null && this.Next != null)
+            {
+                this.MoveAbleObject = obj;
+                this.MoveAbleObject.Pos = this.Pos;
+                return true;
+            }
+
+            return false;
+        }
     }
 }

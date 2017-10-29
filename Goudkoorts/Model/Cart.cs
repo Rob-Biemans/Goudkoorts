@@ -38,12 +38,11 @@ namespace Goudkoorts
 
             if (_field.Next == null)
             {
-                _field.RemoveMoveAbleObjectFromThisField();
+                _field.RemoveMoveAbleObjectFromThisField(true);
             }
             else
             {
-                _field.Next.PutMoveAbleObjectOnThisField(this);
-                _field.RemoveMoveAbleObjectFromThisField();
+                _field.RemoveMoveAbleObjectFromThisField(_field.Next.PutMoveAbleObjectOnThisField(this, game));
             }
 
         }

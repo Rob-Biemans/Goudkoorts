@@ -12,9 +12,11 @@ namespace Goudkoorts
 
         public override int Pos { get; set; }
 
-        public override void Action(Game game)
-        {
+        public override void Action(Game game) {}
 
+        public override string Icon()
+        {
+            return "F";
         }
 
         public override bool ContainsMoveAbleObject()
@@ -25,26 +27,24 @@ namespace Goudkoorts
             return false;
         }
 
-        public override string Icon()
-        {
-            return "F";
-        }
-
-        override public void PutMoveAbleObjectOnThisField(MoveAbleObject obj)
+        override public bool PutMoveAbleObjectOnThisField(MoveAbleObject obj, Game game)
         {
             if (obj != null && this.MoveAbleObject == null) {
                 this.MoveAbleObject = obj;
                 this.MoveAbleObject.Pos = this.Pos;
+                return true;
             } else {
-                // Cart found!
-                // Gameover
-               // game.setGameOver();
+               // Cart found!
+               // Gameover
+               game.setGameOver();
             }
+
+            return false;
         }
 
-        public override void RemoveMoveAbleObjectFromThisField()
+        public override void RemoveMoveAbleObjectFromThisField(bool val)
         {
-            if (this.MoveAbleObject != null) {
+            if (this.MoveAbleObject != null && val == true) {
                 this.MoveAbleObject = null;
             } else {
                 // Theres no cart/ship to be removed.

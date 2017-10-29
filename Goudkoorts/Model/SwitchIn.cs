@@ -36,33 +36,18 @@ namespace Goudkoorts
 
         }
 
-        public override void PutMoveAbleObjectOnThisField(MoveAbleObject obj)
+        public override bool PutMoveAbleObjectOnThisField(MoveAbleObject obj, Game game)
         {
 
-            if (this.direction == Directions.Down && this.Pos < obj.Pos)
+            if (this.direction == Directions.Down && this.Pos < obj.Pos ||
+                this.direction == Directions.Up && this.Pos > obj.Pos)
             {
                 this.MoveAbleObject = obj;
                 this.MoveAbleObject.Pos = this.Pos;
+                return true;
             }
 
-            if (this.direction == Directions.Up && this.Pos > obj.Pos)
-            {
-                this.MoveAbleObject = obj;
-                this.MoveAbleObject.Pos = this.Pos;
-            }
-
-        }
-
-        public override void RemoveMoveAbleObjectFromThisField()
-        {
-            if (this.MoveAbleObject != null)
-            {
-                this.MoveAbleObject = null;
-            }
-            else
-            {
-                // Theres no cart/ship to be removed.
-            }
+            return false;
         }
 
     }
