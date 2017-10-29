@@ -292,7 +292,7 @@ namespace Goudkoorts
                 }
 
                 System.Threading.Thread.Sleep(1);
-                int r = rnd.Next(1, 3);
+                int r = rnd.Next(0, 3);
 
                 if (r != prevRandom)
                     randomCart(warehouseList.ElementAt(r));

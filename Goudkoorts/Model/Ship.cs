@@ -15,7 +15,7 @@ namespace Goudkoorts
         // Constructor
         public Ship()
         {
-            this.currentGold = 8;
+            this.currentGold = 0;
         }
 
         public override string Icon()
